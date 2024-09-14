@@ -11,8 +11,13 @@ export const tableDatas = () => {
         }
     }
 
-    let arrayOfDates = finalData.map(elm => elm.date);
+    let arrayOfDates = new Set(finalData.map(elm => elm.date));
     
-    return finalData;
+
+    let newResultArray = [...arrayOfDates].map(element => {
+        return {date: element, data: finalData.filter(elm => elm.date == element)};
+    });
+
+    return newResultArray;
 
 }
