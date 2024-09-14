@@ -18,7 +18,7 @@ export const NextDay = (props) => {
     }
 
     return (
-      currentHour >= 17 ? <BlockWithData /> : <div>Котировки обновляются в рабочие дни (после 17:00)»</div>
+      currentHour >= 17 ? <BlockWithData /> : <div>Котировки обновляются в рабочие дни (после 17:00)</div>
     );
 
 }
