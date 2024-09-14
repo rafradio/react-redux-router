@@ -3,7 +3,7 @@ import { selectDatas, selectButtonState, selectNavState, selectCurrentDay, selec
 import { Outlet, Link } from "react-router-dom";
 import '../index.css';
 import { TableData } from '../components/TableData';
-import { btnTableClick, toggleNavLink } from '../features/CounterSlice';
+import { btnTableClick } from '../features/CounterSlice';
 import { useState } from "react";
 import { NextDay } from '../components/NextDay';
 
@@ -13,7 +13,6 @@ export const Root = () => {
     const buttonType = useSelector(selectButtonState);
     const clkButton = () => {
       dispatch(btnTableClick());
-      dispatch(toggleNavLink());
     }
     
     let dataForTable = {date: useSelector(selectCurrentDay), flag: useSelector(selectFlagForNextDay)};

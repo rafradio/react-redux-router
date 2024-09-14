@@ -7,7 +7,6 @@ export const NextDay = (props) => {
     const d = new Date();
     let currentHour = d.getHours();
     const currentTitle = useSelector(state => selectTitleByDate(state, props.dataNext.date));
-    // let datas1 = useSelector(state => selectDatasByDate(state,  props.dataNext.date));
     let datas = props.dataNext.flag ? useSelector(state => selectDatasByDate(state,  props.dataNext.date)) : null;
     const BlockWithData = () => {
       return (
@@ -19,7 +18,7 @@ export const NextDay = (props) => {
     }
 
     return (
-      currentHour >= 9 ? <BlockWithData /> : <div>Котировки обновляются в рабочие дни (после 17:00)»</div>
+      currentHour >= 14 ? <BlockWithData /> : <div>Котировки обновляются в рабочие дни (после 17:00)»</div>
     );
 
 }

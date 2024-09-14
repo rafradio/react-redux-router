@@ -22,7 +22,7 @@ export const TableBox = (props) => {
           </Column>
 
           <Column width={150} align="center">
-            <HeaderCell>Стоимость</HeaderCell>
+            <HeaderCell>Стоимость слитка, руб</HeaderCell>
             <Cell dataKey="price" />
           </Column>
         </Table>

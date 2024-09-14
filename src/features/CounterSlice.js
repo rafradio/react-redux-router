@@ -20,12 +20,9 @@ export const counterSlice = createSlice({
             state.currentDay = state.currentDay == "15.08.2024" ? "16.08.2024" : "15.08.2024";
             state.flagForNextDay = state.flagForNextDay ? false : true;
         },
-        toggleNavLink: state => {
-            state.navigatorLinkNav = state.navigatorLinkNav == `table/2` ? `/` : `table/2`
-        },
     },
 });
 
- export const { btnTableClick, toggleNavLink } = counterSlice.actions;
+ export const { btnTableClick } = counterSlice.actions;
 
 export default counterSlice.reducer;
