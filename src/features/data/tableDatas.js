@@ -10,6 +10,8 @@ export const tableDatas = () => {
             finalData.push({weight: obj[key].weight, rate: obj[key].rate, price: price.toFixed(2), date: obj[key].date_start});
         }
     }
+
+    let arrayOfDates = finalData.map(elm => elm.date);
     
     return finalData;
 

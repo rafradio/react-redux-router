@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { tableDatas } from './data/dataForTable';
+import { tableDatas } from './data/tableDatas';
+import { titleWithMonth } from './data/titleWithMonth';
 
 const initialState = {
     dataTable: tableDatas(),
@@ -7,6 +8,7 @@ const initialState = {
     navigatorLinkNav: `table/2`,
     currentDay: "15.08.2024",
     flagForNextDay: false,
+    title: titleWithMonth(["15.08.2024", "16.08.2024"]),
 }
 
 export const counterSlice = createSlice({

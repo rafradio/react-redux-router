@@ -1,18 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
+import { selectTitleByDate } from '../store/selectors';
 import { TableBox } from './TableBox';
 
 export const NextDay = (props) => {
-    const { dateID } = useParams();
+    const d = new Date();
+    let currentHour = d.getHours();
+    const currentTitle = useSelector(state => selectTitleByDate(state, props.dataNext.date));
     let datas = props.dataNext.flag ? useSelector(state => state.counter.dataTable.filter(data => data.date == props.dataNext.date)) : null;
-    // if (dateID == 2) {
-    //   datas = useSelector(state => state.counter.dataTable.filter(data => data.date == "16.08.2024"));
-    // }
-    
+    const BlockWithData = () => {
+      return (
+        <>
+          <h4>Курс по состоянию на {currentTitle.title} </h4>
+          <TableBox datas={datas}/>
+        </>
+      );
+    }
+
     return (
-      <>
-        <h4>Курс по состоянию на {props.dataNext.date} </h4>
-        <TableBox datas={datas}/>
-      </>
+      currentHour >= 9 ? <BlockWithData /> : <div>Котировки обновляются в рабочие дни (после 17:00)»</div>
     );
+
 }

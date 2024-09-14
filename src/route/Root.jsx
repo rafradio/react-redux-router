@@ -9,13 +9,13 @@ import { NextDay } from '../components/NextDay';
 
 export const Root = () => {
     const dispatch = useDispatch();
-    const datas = useSelector(selectDatas);
+    
     const buttonType = useSelector(selectButtonState);
     const clkButton = () => {
       dispatch(btnTableClick());
       dispatch(toggleNavLink());
     }
-    const navigatorLink = useSelector(selectNavState);
+    
     let dataForTable = {date: useSelector(selectCurrentDay), flag: useSelector(selectFlagForNextDay)};
 
     return (
@@ -55,13 +55,10 @@ export const Root = () => {
           </nav>
         </div>
         <div id="detail" className='detail'>
-          
           <TableData dataNext={dataForTable}/>
           <div id='info'>Котировки на следующий рабочий день</div>
           <div id='show' onClick={clkButton}>{buttonType}</div>
- 
           {dataForTable.flag ? <NextDay dataNext={dataForTable}/>: <></>}
-
         </div>
       </>
     );
